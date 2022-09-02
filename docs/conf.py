@@ -10,7 +10,7 @@
 # add these directories to sys.path here. If the directory is relative to the
 # documentation root, use os.path.abspath to make it absolute, like shown here.
 #
-# import os
+import os
 # import sys
 # sys.path.insert(0, os.path.abspath('.'))
 
@@ -58,3 +58,14 @@ html_theme_options = {
     'github_repo': 'dompteur',
     'github_banner': True,
 }
+
+local_plantuml_path = os.path.join(os.path.dirname(__file__), "utils", "plantuml.jar")
+
+on_rtd = os.environ.get("READTHEDOCS") == "True"
+
+if on_rtd:
+    # Deactivated using rtd plantuml version as it looks quite old.
+    # plantuml = 'java -Djava.awt.headless=true -jar /usr/share/plantuml/plantuml.jar'
+    plantuml = f"java -Djava.awt.headless=true -jar {local_plantuml_path}"
+else:
+    plantuml = f"java -jar {local_plantuml_path}"
