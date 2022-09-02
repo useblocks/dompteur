@@ -4,10 +4,11 @@ salt
 <b>Dompteur Start Page
     .
     {
-        Project NEW | [Build <&key>] | ^HTML^ | --- | [ Configure <&key> ]
-        Project A | [Build <&beaker>] | ^HTML^ | --- | [ Configure <&cog> ]
-        Project B | [Build <&beaker>] | ^PDF ^ | --- | [ Configure <&cog> ]
-        Project C | [Build <&beaker>] | ^HTML^ | --- | [ Configure <&cog> ]
+        Project NEW | [Build <&beaker>] | ^HTML^ | [Show <&eye>] | --- | [ Configure <&cog> ]
+        Project A | [Build <&beaker>] | ^HTML^ | [Show <&eye>] | --- | [ Configure <&cog> ]
+        Project B | [Build <&beaker>] | ^PDF^ | [Show <&eye>] | --- | [ Configure <&cog> ]
+        Project C | [Build <&beaker>] | ^HTML^ | [Show <&eye>] | --- | [ Configure <&cog> ]
+
     }
     .
     {
