@@ -1,0 +1,24 @@
+@startuml
+salt
+{
+    {
+    <b>Create new project
+    Configure the main parts of your sphinx project.
+    (mainly "sphinx-quickstart" options)
+    .
+    }
+    {
+    Target folder | "/home/me/project_new/docs "
+    Project name | "Project New"
+    Project author | "Team New"
+    [X] Separate build folder
+    Project version | "1.0"
+    Sphinx version| ^Sphinx 5.1^
+    }
+    --
+    {
+        [<b>Next] | [Cancel]
+    }
+}
+
+@enduml

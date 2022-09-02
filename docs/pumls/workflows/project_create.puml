@@ -1,0 +1,53 @@
+@startuml
+(*) --> "
+{{
+!include ../mockups/main.puml
+}}
+" as select
+
+select -down-> "**Create new project** clicked" as new_clicked
+
+new_clicked -down-> "
+{{
+!include ../mockups/new_project_sphinx.puml
+}}
+" as conf_sphinx
+
+conf_sphinx -down-> "**Next** clicked" as next_project
+
+next_project -down-> "
+{{
+!include ../mockups/extension_select.puml
+}}
+" as conf_ext
+
+conf_ext -down-> "**Next** clicked" as next_ext
+
+next_ext -down-> "
+{{
+!include ../mockups/env_configure.puml
+}}
+" as conf_env
+
+conf_env -down-> "
+**Create project** clicked
+* Store project config in /USER/dompteur.ini
+* Call **dompteur_create(project)**
+" as create_project
+
+create_project -down-> "
+{{
+!include ../mockups/project_create.puml
+}}
+" as create_view
+
+create_view -down-> "**Done** clicked" as done_create
+
+done_create -down-> "
+{{
+!include ../mockups/main_new.puml
+}}
+" as select_new
+
+
+@enduml

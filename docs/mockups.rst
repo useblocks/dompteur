@@ -1,87 +1,42 @@
+.. _mockups:
+
 Mockups
 =======
+This page collects mockups of different windows and their layout.
 
-.. uml::
+To understand, when which window is used, take a look into :ref:`workflows`
 
-    @startuml
-    (*) --> "
-    {{
-    salt
-    {
-    <b>Dompteur start
-        {
-            Project A | [Build <&key>] | ^HTML^ | --- | [ Configure <&key> ]
-            Project B | [Build <&key>] | ^HTML^ | --- | [ Configure <&key> ]
-            Project C | [Build <&key>] | ^HTML^ | --- | [ Configure <&key> ]
-        }
 
-        {
-            [ Create new project ] | [ Import existing project ]
-        }
-    }
-    }}
-    " as select
+.. contents::
 
-    select -down-> "
-    {{
-    salt
-    {
-    <b>Create new project
-    Target folder | "/home/me/project_a/docs "
-    Project name | "Project A"
-    Project author | "Team a"
-    [X] Separate build folder
-    Project version | "1.0"
-    Sphinx version| ^Sphinx 5.1^
-    }
-    }}
+Main starting window
+--------------------
 
-    " as conf_sphinx
+.. uml::  /pumls/mockups/main.puml
 
-    conf_sphinx -down-> "
-    {{
-    salt
-    {
-        {
-        <b>Select Extensions
-        {Filter: | "sphinx"}
-        Available Extensions | .| . | Selected extensions
-        {SI
-        Sphinx-Needs
-        Sphinxcontrib-Plantuml
-        **Sphinx-Copybutton**
-        Sphinx-Collections
-        Sphinx-Simplepdf
-        } |  [ add ] | [ remove ] |
-        {SI
-            Sphinx-Copybutton
-            Sphinx-Simplepdf
-            .
-            .
-            .
-        }
-        }
-    {
-    <b>Extension information
-    Lorem ipsum and so ... lorem ipsum and so ... lorem ipsum and so ...
-    lorem ipsum and so ...
-    }
-    }
-    }}
-    " as conf_ext
 
-    conf_ext -down-> "
-    {{
-    salt
-    {
-    <b>Configure Python Environment
-    { ^Create new virtual ENV^ }
-    {Folder | "/docs/.venv"}
+Create new project
+------------------
 
-    The next step will create the Venv, install Sphinx and all selected extensions,
-    and finally setups a new Sphinx project.
-    }
-    }}
-    " as conv_venf
+Sphinx config
+~~~~~~~~~~~~~
 
-    @enduml
+.. uml::  /pumls/mockups/new_project_sphinx.puml
+
+Project creation status
+~~~~~~~~~~~~~~~~~~~~~~~
+.. uml::  /pumls/mockups/project_create.puml
+
+
+Extension selection
+-------------------
+This window can be used for **new** and **existing** projects to select extensions.
+
+.. uml::  /pumls/mockups/extension_select.puml
+
+Env configuration
+-----------------
+
+This window can be used for **new** and **existing** projects to select extensions.
+
+.. uml::  /pumls/mockups/env_configure.puml

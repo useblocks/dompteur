@@ -1,0 +1,37 @@
+@startuml
+salt
+{
+    {
+    <b>Select Extensions
+    Search for extensions and add them to the project.
+    .
+    }
+    {
+    {Filter: | "              "}
+    Available Extensions | .| . | Selected extensions
+    {SI
+    Sphinx-Needs
+    Sphinxcontrib-Plantuml
+    **Sphinx-Copybutton**
+    Sphinx-Collections
+    Sphinx-Simplepdf
+    } |  [ add ] | [ remove ] |
+    {SI
+        Sphinx-Copybutton
+        Sphinx-Simplepdf
+        .
+        .
+        .
+    }
+    }
+    {
+    <b>Extension information
+    Lorem ipsum and so ... lorem ipsum and so ... lorem ipsum and so ...
+    lorem ipsum and so ...
+    }
+    --
+    {
+        [<b>Next] | [Cancel]
+    }
+}
+@enduml

@@ -1,0 +1,26 @@
+@startuml
+salt
+{
+    {
+        <b>Configure Environments
+        .
+        <b>Python Environment
+        { ^Create new virtual ENV^ }
+        {Folder | "/home/me/project_new/docs/.venv"}
+        .
+        <b>IDE Environments
+        Adds preconfigured jobs for your IDE, so that HTML and PDF builds can be started
+        in the IDE with just one click.
+        .
+        [X] Add VsCode tasks config
+        [X] Add PyCharm runner config
+        .
+        The next step will create the Venv, installs Sphinx and all selected extensions,
+        and finally setups a new Sphinx project.
+    }
+    --
+    {
+        [<b>Create project] | [Cancel]
+    }
+}
+@enduml

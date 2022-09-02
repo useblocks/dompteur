@@ -1,0 +1,38 @@
+@startuml
+salt
+{
+    {
+       <b>Creating project
+        Your project is getting installed and configured.
+        Sit back and relax. It only needs some moments.
+        .
+
+    }
+    {
+        <b>Status
+        (X) Venv setup | --> |(X) Deps install | --> | (X) Sphinx project | --> | () conf.py update | --> | () Initial build
+       }
+    .
+    {
+        <b>Console output
+        {SI
+            loading pickled environment... done
+            building [mo]: targets for 0 po files that are out of date
+            building [html]: targets for 1 source files that are out of date
+            updating environment: 0 added, 1 changed, 0 removed
+            reading sources... [100%] mockups
+
+            looking for now-outdated files... none found
+            pickling environment... done
+            checking consistency... done
+            preparing documents... done
+            writing output... [ 50%] index
+            writing output... [100%] mockups
+        }
+    }
+    --
+    {
+        [<b>Done]
+    }
+}
+@enduml
