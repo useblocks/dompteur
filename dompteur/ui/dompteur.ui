@@ -1,0 +1,272 @@
+<?xml version='1.0' encoding='utf-8'?>
+<interface version="1.2">
+  <object class="tk.Toplevel" id="toplevel1">
+    <property name="background">#41799c</property>
+    <property name="container">false</property>
+    <property name="cursor">arrow</property>
+    <property name="height">200</property>
+    <property name="relief">flat</property>
+    <property name="takefocus">false</property>
+    <property name="title" translatable="yes">Dompteur</property>
+    <property name="width">650</property>
+    <child>
+      <object class="ttk.Panedwindow" id="panedwindow3">
+        <property name="orient">horizontal</property>
+        <layout manager="pack">
+          <property name="expand">true</property>
+          <property name="fill">both</property>
+          <property name="side">top</property>
+        </layout>
+        <child>
+          <object class="ttk.Panedwindow.Pane" id="pane1">
+            <property name="weight">0</property>
+            <child>
+              <object class="ttk.Frame" id="SphinxFrame">
+                <property name="borderwidth">0</property>
+                <property name="style">Sphinx_M.TFrame</property>
+                <property name="width">300</property>
+                <layout manager="pack">
+                  <property name="side">top</property>
+                </layout>
+                <child>
+                  <object class="ttk.Label" id="label5">
+                    <property name="background">#0a507a</property>
+                    <property name="font">TkDefaultFont</property>
+                    <property name="image">sphinx_blue_small_logo.png</property>
+                    <property name="justify">center</property>
+                    <property name="style">Sphinx.TLabel</property>
+                    <property name="text" translatable="yes">label5</property>
+                    <layout manager="pack">
+                      <property name="pady">0</property>
+                      <property name="side">top</property>
+                    </layout>
+                  </object>
+                </child>
+                <child>
+                  <object class="ttk.Label" id="label3">
+                    <property name="padding">20 0</property>
+                    <property name="style">Sphinx_M.TLabel</property>
+                    <property name="text" translatable="yes">Sphinx SimpleStart</property>
+                    <layout manager="pack">
+                      <property name="pady">0 40</property>
+                      <property name="side">top</property>
+                    </layout>
+                  </object>
+                </child>
+                <child>
+                  <object class="ttk.Button" id="button18">
+                    <property name="compound">top</property>
+                    <property name="default">disabled</property>
+                    <property name="style">Sphinx_M.TButton</property>
+                    <property name="takefocus">true</property>
+                    <property name="text" translatable="yes">Import Project</property>
+                    <property name="width">18</property>
+                    <layout manager="pack">
+                      <property name="anchor">n</property>
+                      <property name="expand">false</property>
+                      <property name="pady">5</property>
+                      <property name="side">top</property>
+                    </layout>
+                  </object>
+                </child>
+                <child>
+                  <object class="ttk.Button" id="button17">
+                    <property name="compound">top</property>
+                    <property name="cursor">arrow</property>
+                    <property name="default">disabled</property>
+                    <property name="state">normal</property>
+                    <property name="style">Sphinx_M.TButton</property>
+                    <property name="takefocus">true</property>
+                    <property name="text" translatable="yes">Create Project</property>
+                    <property name="width">18</property>
+                    <layout manager="pack">
+                      <property name="anchor">n</property>
+                      <property name="expand">false</property>
+                      <property name="pady">5</property>
+                      <property name="side">top</property>
+                    </layout>
+                  </object>
+                </child>
+                <child>
+                  <object class="ttk.Frame" id="frame1">
+                    <property name="height">30</property>
+                    <property name="style">Sphinx_M.TFrame</property>
+                    <property name="takefocus">false</property>
+                    <property name="width">200</property>
+                    <layout manager="pack">
+                      <property name="side">top</property>
+                    </layout>
+                  </object>
+                </child>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="ttk.Panedwindow.Pane" id="pane2">
+            <child>
+              <object class="ttk.Frame" id="frame5">
+                <property name="cursor">arrow</property>
+                <property name="height">100</property>
+                <property name="style">Sphinx_R.TFrame</property>
+                <property name="takefocus">false</property>
+                <property name="width">200</property>
+                <layout manager="pack">
+                  <property name="side">top</property>
+                </layout>
+                <child>
+                  <object class="ttk.Frame" id="frame6">
+                    <property name="height">2</property>
+                    <property name="style">Sphinx_R.TFrame</property>
+                    <property name="width">200</property>
+                    <layout manager="pack">
+                      <property name="pady">20</property>
+                      <property name="side">top</property>
+                    </layout>
+                    <containerlayout manager="grid">
+                      <property name="anchor">center</property>
+                    </containerlayout>
+                    <child>
+                      <object class="ttk.Label" id="label1">
+                        <property name="anchor">n</property>
+                        <property name="justify">right</property>
+                        <property name="style">Sphinx_R.TLabel</property>
+                        <property name="text" translatable="yes">Project X</property>
+                        <property name="width">20</property>
+                        <layout manager="grid">
+                          <property name="column">0</property>
+                          <property name="ipadx">0</property>
+                          <property name="row">0</property>
+                        </layout>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="ttk.Button" id="button8">
+                        <property name="style">Sphinx_R.TButton</property>
+                        <property name="text" translatable="yes">Build</property>
+                        <layout manager="grid">
+                          <property name="column">1</property>
+                          <property name="padx">2</property>
+                          <property name="row">0</property>
+                        </layout>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="ttk.Combobox" id="combobox2">
+                        <property name="exportselection">true</property>
+                        <property name="validate">focusin</property>
+                        <property name="values">HTML PDF JSON</property>
+                        <property name="width">10</property>
+                        <layout manager="grid">
+                          <property name="column">2</property>
+                          <property name="padx">0</property>
+                          <property name="row">0</property>
+                        </layout>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="ttk.Button" id="button_show">
+                        <property name="cursor">arrow</property>
+                        <property name="style">Sphinx_R.TButton</property>
+                        <property name="text" translatable="yes">Show</property>
+                        <layout manager="grid">
+                          <property name="column">4</property>
+                          <property name="padx">2</property>
+                          <property name="row">0</property>
+                        </layout>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="ttk.Button" id="conf">
+                        <property name="style">Sphinx_R.TButton</property>
+                        <property name="text" translatable="yes">Configure</property>
+                        <layout manager="grid">
+                          <property name="column">65</property>
+                          <property name="padx">20</property>
+                          <property name="row">0</property>
+                        </layout>
+                      </object>
+                    </child>
+                  </object>
+                </child>
+                <child>
+                  <object class="ttk.Frame" id="frame8">
+                    <property name="height">2</property>
+                    <property name="style">Sphinx_R.TFrame</property>
+                    <property name="width">200</property>
+                    <layout manager="pack">
+                      <property name="side">top</property>
+                    </layout>
+                    <containerlayout manager="grid">
+                      <property name="anchor">center</property>
+                    </containerlayout>
+                    <child>
+                      <object class="ttk.Label" id="label2">
+                        <property name="anchor">n</property>
+                        <property name="style">Sphinx_R.TLabel</property>
+                        <property name="takefocus">true</property>
+                        <property name="text" translatable="yes">Project X</property>
+                        <property name="width">20</property>
+                        <layout manager="grid">
+                          <property name="column">0</property>
+                          <property name="ipadx">0</property>
+                          <property name="row">0</property>
+                        </layout>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="ttk.Button" id="button14">
+                        <property name="style">Sphinx_R.TButton</property>
+                        <property name="text" translatable="yes">Build</property>
+                        <layout manager="grid">
+                          <property name="column">1</property>
+                          <property name="padx">2</property>
+                          <property name="row">0</property>
+                        </layout>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="ttk.Combobox" id="combobox4">
+                        <property name="justify">left</property>
+                        <property name="validate">focusout</property>
+                        <property name="values">HTML PDF</property>
+                        <property name="width">10</property>
+                        <layout manager="grid">
+                          <property name="column">2</property>
+                          <property name="row">0</property>
+                        </layout>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="ttk.Button" id="button15">
+                        <property name="cursor">arrow</property>
+                        <property name="style">Sphinx_R.TButton</property>
+                        <property name="text" translatable="yes">Show</property>
+                        <layout manager="grid">
+                          <property name="column">4</property>
+                          <property name="padx">2</property>
+                          <property name="row">0</property>
+                        </layout>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="ttk.Button" id="button16">
+                        <property name="style">Sphinx_R.TButton</property>
+                        <property name="text" translatable="yes">Configure</property>
+                        <layout manager="grid">
+                          <property name="column">65</property>
+                          <property name="padx">20</property>
+                          <property name="row">0</property>
+                        </layout>
+                      </object>
+                    </child>
+                  </object>
+                </child>
+              </object>
+            </child>
+          </object>
+        </child>
+      </object>
+    </child>
+  </object>
+</interface>

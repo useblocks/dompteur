@@ -1,1 +1,3 @@
-dearpygui
+# dearpygui
+pygubu
+sv-ttk  # ttk-theme: https://github.com/rdbende/Sun-Valley-ttk-theme
