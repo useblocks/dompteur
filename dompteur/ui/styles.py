@@ -23,17 +23,37 @@ style.configure('Sphinx_M.TFrame', background='#0A507A')
 style.configure('Sphinx_M.TLabel', background='#0A507A',
                 font=('helvetica', 12, 'bold'),
                 foreground='#ffffff')
+style.configure('Sphinx_M_small.TLabel', background='#0A507A',
+                font=('helvetica', 10),
+                foreground='#ffffff')
+
 
 style.configure('Sphinx_M.TButton',
                 relief="flat",
                 background='#FFFFFF',
                 font=('helvetica', 12))
 
+#
 # Right area config
+#
 style.configure('Sphinx_R.TFrame', background='#eeeeee')
+
+#TLabel
 style.configure('Sphinx_R.TLabel', background='#eeeeee',
                 font=('helvetica', 12, 'bold'),
                 foreground='#000000')
+style.configure('Sphinx_R_small.TLabel', background='#eeeeee',
+                font=('helvetica', 10),
+                foreground='#000000')
+style.configure('Sphinx_R_title.TLabel', background='#eeeeee',
+                font=('helvetica', 14, 'bold'),
+                foreground='#000000')
+
+# Entry
+style.configure('Sphinx_R.TEntry', background='#eeeeee',
+                font=('helvetica', 12, 'bold'),
+                foreground='#000000')
+
 
 style.configure('Sphinx_R.TButton',
                 relief="flat",

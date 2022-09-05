@@ -13,7 +13,7 @@ class DompteurApp:
         builder.add_resource_path(PROJECT_PATH)
         builder.add_from_file(PROJECT_UI)
         # Main widget
-        self.mainwindow = builder.get_object("toplevel1", master)
+        self.mainwindow = builder.get_object("main", master)
 
         self.setup_ttk_styles()
 
@@ -54,6 +54,12 @@ class DompteurApp:
             font=("helvetica", 12, "bold"),
             foreground="#ffffff",
         )
+        style.configure(
+            "Sphinx_M_small.TLabel",
+            background="#0A507A",
+            font=("helvetica", 10),
+            foreground="#ffffff",
+        )
 
         style.configure(
             "Sphinx_M.TButton",
@@ -62,10 +68,34 @@ class DompteurApp:
             font=("helvetica", 12),
         )
 
+        #
         # Right area config
+        #
         style.configure("Sphinx_R.TFrame", background="#eeeeee")
+
+        # TLabel
         style.configure(
             "Sphinx_R.TLabel",
+            background="#eeeeee",
+            font=("helvetica", 12, "bold"),
+            foreground="#000000",
+        )
+        style.configure(
+            "Sphinx_R_small.TLabel",
+            background="#eeeeee",
+            font=("helvetica", 10),
+            foreground="#000000",
+        )
+        style.configure(
+            "Sphinx_R_title.TLabel",
+            background="#eeeeee",
+            font=("helvetica", 14, "bold"),
+            foreground="#000000",
+        )
+
+        # Entry
+        style.configure(
+            "Sphinx_R.TEntry",
             background="#eeeeee",
             font=("helvetica", 12, "bold"),
             foreground="#000000",
@@ -89,6 +119,9 @@ class DompteurApp:
             foreground=[("pressed", "#FFFFFF"), ("active", "#FFFFFF")],
             background=[("pressed", "!disabled", "#555555"), ("active", "#444444")],
         )
+
+    def open_create(self):
+        pass
 
 
 if __name__ == "__main__":
