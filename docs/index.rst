@@ -59,8 +59,10 @@ Contents
 .. toctree::
    :maxdepth: 2
 
+   technic
    mockups
    workflows
+
 
 
 Ideas

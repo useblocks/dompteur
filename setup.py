@@ -24,7 +24,7 @@ setup(
     include_package_data=True,
     entry_points={
     },
-    install_requires=[],
+    install_requires=["platformdirs", "tomli"],
     classifiers=[
         'Framework :: Sphinx',
         'Framework :: Sphinx :: Theme',

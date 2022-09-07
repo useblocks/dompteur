@@ -1,0 +1,203 @@
+<?xml version='1.0' encoding='utf-8'?>
+<interface version="1.2">
+  <object class="tk.Toplevel" id="importer">
+    <property name="geometry">800x600</property>
+    <property name="height">200</property>
+    <property name="iconphoto">sphinx_white_small_logo.png</property>
+    <property name="resizable">none</property>
+    <property name="title" translatable="yes">New Project</property>
+    <property name="width">200</property>
+    <child>
+      <object class="ttk.Panedwindow" id="panedwindow1">
+        <property name="height">600</property>
+        <property name="orient">horizontal</property>
+        <property name="width">800</property>
+        <layout manager="pack">
+          <property name="expand">true</property>
+          <property name="fill">both</property>
+          <property name="side">top</property>
+        </layout>
+        <child>
+          <object class="ttk.Panedwindow.Pane" id="pane3">
+            <property name="weight">0</property>
+            <child>
+              <object class="ttk.Frame" id="frame2">
+                <property name="borderwidth">0</property>
+                <property name="style">Sphinx_M.TFrame</property>
+                <property name="width">300</property>
+                <layout manager="pack">
+                  <property name="side">top</property>
+                </layout>
+                <child>
+                  <object class="ttk.Label" id="label4">
+                    <property name="background">#0a507a</property>
+                    <property name="font">TkDefaultFont</property>
+                    <property name="image">sphinx_blue_small_logo.png</property>
+                    <property name="justify">center</property>
+                    <property name="style">Sphinx.TLabel</property>
+                    <property name="text" translatable="yes">label5</property>
+                    <layout manager="pack">
+                      <property name="pady">0</property>
+                      <property name="side">top</property>
+                    </layout>
+                  </object>
+                </child>
+                <child>
+                  <object class="ttk.Label" id="label6">
+                    <property name="padding">20 0</property>
+                    <property name="style">Sphinx_M.TLabel</property>
+                    <property name="text" translatable="yes">Sphinx SimpleStart</property>
+                    <layout manager="pack">
+                      <property name="side">top</property>
+                    </layout>
+                  </object>
+                </child>
+                <child>
+                  <object class="ttk.Label" id="label11">
+                    <property name="padding">20 0</property>
+                    <property name="style">Sphinx_M_small.TLabel</property>
+                    <property name="takefocus">false</property>
+                    <property name="text" translatable="yes">📦 Import existing project</property>
+                    <layout manager="pack">
+                      <property name="pady">0 40</property>
+                      <property name="side">top</property>
+                    </layout>
+                  </object>
+                </child>
+                <child>
+                  <object class="ttk.Frame" id="frame3">
+                    <property name="height">30</property>
+                    <property name="style">Sphinx_M.TFrame</property>
+                    <property name="takefocus">false</property>
+                    <property name="width">200</property>
+                    <layout manager="pack">
+                      <property name="side">top</property>
+                    </layout>
+                  </object>
+                </child>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="ttk.Panedwindow.Pane" id="pane4">
+            <child>
+              <object class="pygubu.builder.widgets.scrolledframe" id="scrolledframe2">
+                <property name="scrolltype">vertical</property>
+                <property name="style">Sphinx_R.TFrame</property>
+                <property name="usemousewheel">true</property>
+                <property name="width">400</property>
+                <layout manager="grid">
+                  <property name="column">0</property>
+                  <property name="row">0</property>
+                </layout>
+                <child>
+                  <object class="ttk.Frame" id="new">
+                    <property name="height">7000</property>
+                    <property name="style">Sphinx_R.TFrame</property>
+                    <property name="takefocus">false</property>
+                    <property name="width">650</property>
+                    <layout manager="grid">
+                      <property name="column">0</property>
+                      <property name="row">0</property>
+                    </layout>
+                    <child>
+                      <object class="ttk.Label" id="label12">
+                        <property name="style">Sphinx_R_title.TLabel</property>
+                        <property name="text" translatable="yes">📦 Import a project</property>
+                        <layout manager="grid">
+                          <property name="column">0</property>
+                          <property name="padx">20</property>
+                          <property name="pady">20 00</property>
+                          <property name="row">0</property>
+                          <property name="sticky">w</property>
+                        </layout>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="ttk.Label" id="label13">
+                        <property name="justify">left</property>
+                        <property name="style">Sphinx_R_small.TLabel</property>
+                        <property name="text" translatable="yes">Bal bla</property>
+                        <layout manager="grid">
+                          <property name="column">0</property>
+                          <property name="padx">20</property>
+                          <property name="pady">0 20</property>
+                          <property name="row">1</property>
+                          <property name="sticky">w</property>
+                        </layout>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="ttk.Frame" id="basics">
+                        <property name="height">500</property>
+                        <property name="style">Sphinx_R.TFrame</property>
+                        <property name="width">500</property>
+                        <layout manager="grid">
+                          <property name="column">0</property>
+                          <property name="padx">20 0</property>
+                          <property name="row">2</property>
+                        </layout>
+                        <child>
+                          <object class="ttk.Label" id="label21">
+                            <property name="style">Sphinx_R.TLabel</property>
+                            <property name="text" translatable="yes">Basics</property>
+                            <property name="width">20</property>
+                            <layout manager="grid">
+                              <property name="column">0</property>
+                              <property name="padx">0 20</property>
+                              <property name="pady">0</property>
+                              <property name="row">0</property>
+                              <property name="sticky">w</property>
+                            </layout>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="ttk.Frame" id="frame15">
+                            <property name="height">2</property>
+                            <property name="width">350</property>
+                            <layout manager="grid">
+                              <property name="column">0</property>
+                              <property name="columnspan">2</property>
+                              <property name="pady">0 20</property>
+                              <property name="row">1</property>
+                            </layout>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="ttk.Label" id="label14">
+                            <property name="style">Sphinx_R.TLabel</property>
+                            <property name="text" translatable="yes">Project folder</property>
+                            <property name="width">20</property>
+                            <layout manager="grid">
+                              <property name="column">0</property>
+                              <property name="padx">0 20</property>
+                              <property name="row">2</property>
+                            </layout>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="pygubu.builder.widgets.pathchooserinput" id="pathchooserinput1">
+                            <property name="image">sphinx_black_icon_logo.png</property>
+                            <property name="mustexist">true</property>
+                            <property name="state">normal</property>
+                            <property name="title" translatable="yes">Select conf.py file</property>
+                            <property name="type">file</property>
+                            <layout manager="grid">
+                              <property name="column">1</property>
+                              <property name="row">2</property>
+                            </layout>
+                          </object>
+                        </child>
+                      </object>
+                    </child>
+                  </object>
+                </child>
+              </object>
+            </child>
+          </object>
+        </child>
+      </object>
+    </child>
+  </object>
+</interface>

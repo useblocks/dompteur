@@ -4,16 +4,16 @@ import tkinter.ttk as ttk
 import pygubu
 
 PROJECT_PATH = pathlib.Path(__file__).parent
-PROJECT_UI = PROJECT_PATH / "dompteur.ui"
+PROJECT_UI = PROJECT_PATH / "importer.ui"
 
 
-class DompteurApp:
+class ImporterApp:
     def __init__(self, master=None):
         self.builder = builder = pygubu.Builder()
         builder.add_resource_path(PROJECT_PATH)
         builder.add_from_file(PROJECT_UI)
         # Main widget
-        self.mainwindow = builder.get_object("main", master)
+        self.mainwindow = builder.get_object("importer", master)
 
         self.setup_ttk_styles()
 
@@ -120,16 +120,7 @@ class DompteurApp:
             background=[("pressed", "!disabled", "#555555"), ("active", "#444444")],
         )
 
-    def open_import(self):
-        pass
-
-    def open_create(self):
-        pass
-
-    def open_conf(self):
-        pass
-
 
 if __name__ == "__main__":
-    app = DompteurApp()
+    app = ImporterApp()
     app.run()

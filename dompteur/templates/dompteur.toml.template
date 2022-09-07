@@ -1,0 +1,8 @@
+# Dompteur toml file
+
+[basic]
+
+[paths]
+templates_folder = "templates/"
+projects_folder = "projects/"
+default_workspace = "."
