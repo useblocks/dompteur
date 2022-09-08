@@ -150,12 +150,12 @@ Sphinx config options are not stored and kept inside ``conf.py`` only.
 
 .. code-block:: toml
 
-   [project]
+   name = "Test  project"
    work_dir = "/home/me/workspace/project"
 
    [builds]
 
-       [html]
+       [builds.html]
        source_dir = "."  # relative workdir
        build_dir = "_build/html"  # relative workdir
        conf = "conf.py"
@@ -166,7 +166,7 @@ Sphinx config options are not stored and kept inside ``conf.py`` only.
        verbose = True
        own_command = "sphinx-build -a -E .b html . _build/html"
 
-       [pdf]
+       [builds.pdf]
        source_dir = "."  # relative workdir
        build_dir = "_build/html"  # relative workdir
        conf = "conf.py"  # relative workdir
