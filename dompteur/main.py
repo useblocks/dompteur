@@ -144,7 +144,10 @@ class SimpleStart(DompteurApp):
         ImporterApp()
 
     def build_docs(self, name, builders_combo, build_button):
-        self.builder.get_object('console').delete("1.0", END)
+        console = self.builder.get_object('console')
+        console.configure(state=NORMAL)
+        console.delete("1.0", END)
+        console.configure(state=DISABLED)
         builder = builders_combo.get()
         org_text = build_button.cget('text')
         build_button.configure(state=DISABLED, text="Building...")
@@ -160,9 +163,11 @@ class SimpleStart(DompteurApp):
         if process.poll() is None:
             lines = process.stdout.readlines()
             lines_error = process.stderr.readlines()
+            console.configure(state=NORMAL)
             console.insert("end-1c", "".join([x.decode("utf-8")for x in lines]))
             console.insert("end-1c", "".join([x.decode("utf-8")for x in lines_error]))
             console.see(END)
+            console.configure(state=DISABLED)
             self.builder.get_object('main').after(50, lambda: self._monitor(process, build_button, org_text))
         else:
             build_button.update()  # Need to disable clicks for DISABLED buttons
@@ -211,6 +216,11 @@ class SimpleStart(DompteurApp):
             subprocess.check_call(['explorer', str(path)])
 
 
-if __name__ == "__main__":
+def start():
     app = SimpleStart()
     app.run()
+
+
+if __name__ == "__main__":
+    start()
+

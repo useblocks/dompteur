@@ -157,6 +157,7 @@
                 <child>
                   <object class="ttk.Labelframe" id="labelframe1">
                     <property name="height">10</property>
+                    <property name="style">Sphinx_R_title.TLabelframe</property>
                     <property name="text" translatable="yes">Console Output</property>
                     <property name="width">0</property>
                     <layout manager="pack">
@@ -172,6 +173,7 @@
                         <property name="foreground">#d9f6ff</property>
                         <property name="height">10</property>
                         <property name="insertunfocussed">hollow</property>
+                        <property name="state">disabled</property>
                         <property name="width">10</property>
                         <layout manager="pack">
                           <property name="expand">false</property>

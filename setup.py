@@ -19,12 +19,13 @@ setup(
     description='A configuration tool for Sphinx projects',
     long_description=open(README_PATH, encoding='utf-8').read(),
     zip_safe=False,
-    packages=[],
+    packages=['dompteur'],
     package_data={},
     include_package_data=True,
-    entry_points={
-    },
     install_requires=["platformdirs", "tomli"],
+    entry_points = {
+        'console_scripts': ['sphinx-simplestart=dompteur.main:start'],
+    },
     classifiers=[
         'Framework :: Sphinx',
         'Framework :: Sphinx :: Theme',
