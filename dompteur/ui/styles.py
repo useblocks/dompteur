@@ -49,6 +49,12 @@ style.configure('Sphinx_R_title.TLabel', background='#eeeeee',
                 font=('helvetica', 14, 'bold'),
                 foreground='#000000')
 
+style.configure('Sphinx_R_title.TLabelframe', background='#eeeeee',
+                foreground='#000000')
+
+style.configure('Sphinx_R_title.TLabelframe.Label', background='#eeeeee',
+                foreground='#000000')
+
 # Entry
 style.configure('Sphinx_R.TEntry', background='#eeeeee',
                 font=('helvetica', 12, 'bold'),

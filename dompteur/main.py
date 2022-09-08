@@ -1,9 +1,11 @@
+import contextlib
+import io
 import os
 from pathlib import Path
 import shutil
 import subprocess
 import sys
-from tkinter import ttk, DISABLED, NORMAL
+from tkinter import ttk, DISABLED, NORMAL, END
 import threading
 
 import tomli
@@ -29,7 +31,6 @@ class SimpleStart(DompteurApp):
         conf_button = self.builder.get_object('conf_dir_button')
         conf_button.config(text=str(CONF_DIR))
 
-
     def _read_configs(self) -> None:
         """
         Care about the config files, create them if they do not exist otherwise read them
@@ -43,10 +44,10 @@ class SimpleStart(DompteurApp):
             shutil.copy(DOMPTEUR_TEMPLATE, DOMP_CONF)
 
         with open(DOMP_CONF, "rb") as f:
-            config = tomli.load(f)
+            self.config = tomli.load(f)
 
         # Projects folder
-        projects_folder = config['paths']['projects_folder']
+        projects_folder = self.config['paths']['projects_folder']
         if os.path.isabs(projects_folder):
             self.projects_folder = projects_folder
         else:
@@ -54,7 +55,7 @@ class SimpleStart(DompteurApp):
         os.makedirs(self.projects_folder, exist_ok=True)
 
         # Template folders
-        templates_folder = config['paths']['templates_folder']
+        templates_folder = self.config['paths']['templates_folder']
         if os.path.isabs(templates_folder):
             self.templates_folder = templates_folder
         else:
@@ -112,9 +113,9 @@ class SimpleStart(DompteurApp):
                                text=f"⚒ Build",
                                command=lambda: self.build_docs(name, builders_combo, build_button))
 
-        build_button.grid(column=1, padx=2, row=0)
+        build_button.grid(column=2, padx=2, row=0)
 
-        builders_combo.grid(column=2, padx=0, row=0)
+        builders_combo.grid(column=1, padx=0, row=0)
 
         show_button = ttk.Button(project_frame)
         show_button.configure(
@@ -126,7 +127,8 @@ class SimpleStart(DompteurApp):
         show_button.grid(column=4, padx=2, row=0)
         edit_button = ttk.Button(project_frame)
         edit_button.configure(
-            cursor="arrow", style="Sphinx_R.TButton", text="🖋 Edit"
+            cursor="arrow", style="Sphinx_R.TButton", text="🖋 Edit",
+            command=lambda: self.edit_docs(name, builders_combo)
         )
         edit_button.grid(column=5, padx=2, row=0)
         conf_button = ttk.Button(project_frame)
@@ -142,21 +144,29 @@ class SimpleStart(DompteurApp):
         ImporterApp()
 
     def build_docs(self, name, builders_combo, build_button):
+        self.builder.get_object('console').delete("1.0", END)
         builder = builders_combo.get()
         org_text = build_button.cget('text')
         build_button.configure(state=DISABLED, text="Building...")
         build_button.update()  # Needed to show new text immediately
-        build_thread = self.prj_store.build_project(name, builder)
-        self._monitor(build_thread, build_button, org_text)
+        process = self.prj_store.build_project(name, builder)
+        os.set_blocking(process.stdout.fileno(), False)
+        os.set_blocking(process.stderr.fileno(), False)
+        self._monitor(process, build_button, org_text)
 
+    def _monitor(self, process, build_button, org_text):
+        console = self.builder.get_object('console')
 
-    def _monitor(self, build_thread, build_button, org_text):
-        if build_thread.is_alive():
-            self.builder.get_object('main').after(100, lambda: self._monitor(build_thread, build_button, org_text))
+        if process.poll() is None:
+            lines = process.stdout.readlines()
+            lines_error = process.stderr.readlines()
+            console.insert("end-1c", "".join([x.decode("utf-8")for x in lines]))
+            console.insert("end-1c", "".join([x.decode("utf-8")for x in lines_error]))
+            console.see(END)
+            self.builder.get_object('main').after(50, lambda: self._monitor(process, build_button, org_text))
         else:
             build_button.update()  # Need to disable clicks for DISABLED buttons
             build_button.configure(state=NORMAL, text=org_text)
-
 
     def show_docs(self, name, builders_combo):
         builder = builders_combo.get()
@@ -171,6 +181,23 @@ class SimpleStart(DompteurApp):
             subprocess.run(args, cwd=project_conf['working_dir'])
         else:
             self._os_open(build_path)
+
+    def edit_docs(self, name, builder_combo):
+        ide_command = self.config.get('ide_command', False)
+        if not ide_command:
+            return
+
+        prj_conf = self.prj_store.projects[name]
+        prj_cwd = prj_conf.get('working_dir')
+
+        if not prj_cwd:
+            return
+
+        args = [ide_command, prj_cwd]
+
+        subprocess.run(args)
+
+
 
     def open_conf(self):
         self._os_open(CONF_DIR)

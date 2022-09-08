@@ -4,8 +4,8 @@
     <property name="background">#41799c</property>
     <property name="container">false</property>
     <property name="cursor">arrow</property>
-    <property name="geometry">900x400</property>
-    <property name="height">400</property>
+    <property name="geometry">900x500</property>
+    <property name="height">500</property>
     <property name="iconphoto">sphinx_white_small_logo.png</property>
     <property name="relief">flat</property>
     <property name="takefocus">false</property>
@@ -147,19 +147,48 @@
                     <property name="takefocus">false</property>
                     <property name="width">200</property>
                     <layout manager="pack">
-                      <property name="fill">both</property>
-                      <property name="pady">20</property>
+                      <property name="expand">true</property>
+                      <property name="fill">x</property>
+                      <property name="pady">10</property>
                       <property name="side">top</property>
                     </layout>
+                  </object>
+                </child>
+                <child>
+                  <object class="ttk.Labelframe" id="labelframe1">
+                    <property name="height">10</property>
+                    <property name="text" translatable="yes">Console Output</property>
+                    <property name="width">0</property>
+                    <layout manager="pack">
+                      <property name="expand">false</property>
+                      <property name="fill">x</property>
+                      <property name="side">top</property>
+                    </layout>
+                    <child>
+                      <object class="tk.Text" id="console">
+                        <property name="background">#333333</property>
+                        <property name="blockcursor">true</property>
+                        <property name="font">TkDefaultFont</property>
+                        <property name="foreground">#d9f6ff</property>
+                        <property name="height">10</property>
+                        <property name="insertunfocussed">hollow</property>
+                        <property name="width">10</property>
+                        <layout manager="pack">
+                          <property name="expand">false</property>
+                          <property name="fill">both</property>
+                          <property name="side">top</property>
+                        </layout>
+                      </object>
+                    </child>
                   </object>
                 </child>
                 <child>
                   <object class="ttk.Frame" id="conf_frame">
                     <property name="height">20</property>
                     <layout manager="pack">
-                      <property name="expand">false</property>
+                      <property name="expand">true</property>
                       <property name="fill">x</property>
-                      <property name="side">bottom</property>
+                      <property name="side">left</property>
                     </layout>
                     <child>
                       <object class="ttk.Label" id="label4">

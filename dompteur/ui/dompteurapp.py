@@ -93,6 +93,16 @@ class DompteurApp:
             foreground="#000000",
         )
 
+        style.configure(
+            "Sphinx_R_title.TLabelframe", background="#eeeeee", foreground="#000000"
+        )
+
+        style.configure(
+            "Sphinx_R_title.TLabelframe.Label",
+            background="#eeeeee",
+            foreground="#000000",
+        )
+
         # Entry
         style.configure(
             "Sphinx_R.TEntry",
@@ -120,7 +130,7 @@ class DompteurApp:
             background=[("pressed", "!disabled", "#555555"), ("active", "#444444")],
         )
 
-    def open_import(self):
+    def open_import(self, widget_id):
         pass
 
     def open_create(self):

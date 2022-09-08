@@ -1,6 +1,6 @@
 # Dompteur toml file
 
-[basic]
+ide_command = "code"
 
 [paths]
 templates_folder = "templates/"

@@ -1,4 +1,5 @@
 import os
+import sys
 import threading
 import subprocess
 
@@ -45,12 +46,5 @@ class ProjectsStore:
                 build_conf['build_dir'],
             ]
         cwd = project_conf['working_dir']
-        build_thread = threading.Thread(target=self._run_build, args=[project, args, cwd])
-        build_thread.start()
-        return build_thread
-
-    def _run_build(self, project, args, cwd):
-        self.status[project] = "Running"
-        subprocess.run(args, cwd=cwd)
-        self.status[project] = "Finished"
-
+        process = subprocess.Popen(args, cwd=cwd, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        return process
