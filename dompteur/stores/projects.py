@@ -1,4 +1,5 @@
 import os
+import threading
 import subprocess
 
 import tomli
@@ -12,6 +13,7 @@ class ProjectsStore:
     def __init__(self, projects_folder):
         self.projects_folder = projects_folder
         self.projects = {}
+        self.status = {}
 
         self.load_projects()
 
@@ -29,7 +31,6 @@ class ProjectsStore:
     def remove_project(self):
         pass
 
-
     def build_project(self, project, builder):
         project_conf = self.projects[project]
         build_conf = project_conf['builds'][builder.lower()]
@@ -43,7 +44,13 @@ class ProjectsStore:
                 build_conf['source_dir'],
                 build_conf['build_dir'],
             ]
-        subprocess.run(args, cwd=project_conf['working_dir'])
+        cwd = project_conf['working_dir']
+        build_thread = threading.Thread(target=self._run_build, args=[project, args, cwd])
+        build_thread.start()
+        return build_thread
 
-
+    def _run_build(self, project, args, cwd):
+        self.status[project] = "Running"
+        subprocess.run(args, cwd=cwd)
+        self.status[project] = "Finished"
 

@@ -1,10 +1,10 @@
-from copy import copy
 import os
 from pathlib import Path
 import shutil
 import subprocess
 import sys
-from tkinter import ttk
+from tkinter import ttk, DISABLED, NORMAL
+import threading
 
 import tomli
 from platformdirs import user_config_path
@@ -110,7 +110,7 @@ class SimpleStart(DompteurApp):
 
         build_button.configure(style="Sphinx_R.TButton",
                                text=f"⚒ Build",
-                               command=lambda: self.build_docs(name, builders_combo))
+                               command=lambda: self.build_docs(name, builders_combo, build_button))
 
         build_button.grid(column=1, padx=2, row=0)
 
@@ -141,10 +141,22 @@ class SimpleStart(DompteurApp):
     def open_import(self):
         ImporterApp()
 
-    def build_docs(self, name, builders_combo):
+    def build_docs(self, name, builders_combo, build_button):
         builder = builders_combo.get()
-        print(f'Builder: {builder}')
-        self.prj_store.build_project(name, builder)
+        org_text = build_button.cget('text')
+        build_button.configure(state=DISABLED, text="Building...")
+        build_button.update()  # Needed to show new text immediately
+        build_thread = self.prj_store.build_project(name, builder)
+        self._monitor(build_thread, build_button, org_text)
+
+
+    def _monitor(self, build_thread, build_button, org_text):
+        if build_thread.is_alive():
+            self.builder.get_object('main').after(100, lambda: self._monitor(build_thread, build_button, org_text))
+        else:
+            build_button.update()  # Need to disable clicks for DISABLED buttons
+            build_button.configure(state=NORMAL, text=org_text)
+
 
     def show_docs(self, name, builders_combo):
         builder = builders_combo.get()
@@ -157,8 +169,8 @@ class SimpleStart(DompteurApp):
         if build_show:
             args = build_show.split(' ')
             subprocess.run(args, cwd=project_conf['working_dir'])
-
-        self._os_open(build_path)
+        else:
+            self._os_open(build_path)
 
     def open_conf(self):
         self._os_open(CONF_DIR)
@@ -170,10 +182,6 @@ class SimpleStart(DompteurApp):
             subprocess.check_call(['xdg-open', str(path)])
         elif sys.platform == 'win32':
             subprocess.check_call(['explorer', str(path)])
-
-
-
-
 
 
 if __name__ == "__main__":
